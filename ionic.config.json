@@ -1,0 +1,7 @@
+{
+  "name": "Quran",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

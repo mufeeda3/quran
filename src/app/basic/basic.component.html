@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      الآيات - {{ser.CurrentPage.Name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item (click)="readingModeChanged(1)">
+            <ion-label [color]="lbSelectVerse">آية</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item (click)="readingModeChanged(2)">
+            <ion-label [color]="lbSelectWord">كلمات</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item (click)="readingModeChanged(3)">
+            <ion-label [color]="lbSelectThree">3 كلمات</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item (click)="changeTimeout(-1)">
+            <ion-label color="primary" style="text-align: center;font-size: larger;font-weight: bolder;">-</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label color="secondary" style="text-align: center;font-weight: bolder;">{{ ser.Timeout | number:'1.0-2' }}S</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item (click)="changeTimeout(1)">
+            <ion-label color="primary" style="text-align: center;font-size: larger;font-weight: bolder;">+</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  <!-- <ion-item>
+    <ion-label>القراءة</ion-label>
+    <ion-select (ionChange)="readingModeChanged()" [(ngModel)]="ReadingMode" interface="sheet">
+      <ion-select-option value="1">آية</ion-select-option>
+      <ion-select-option value="2">كلمات</ion-select-option>
+      <ion-select-option value="3">3 كلمات</ion-select-option>
+    </ion-select>
+  </ion-item> -->
+ 
+  <ion-card (click)="showHide()">
+    <ion-card-header>
+      <ion-card-subtitle>{{VerseTitle}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <h3 style="color: darkblue;font-size: 18pt;font-weight: bolder;">{{ContentVerse}}</h3>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" (click)="prevPage()">السابق</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" (click)="resetPage()">تكرار</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="full" (click)="nextPage()">التالي</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

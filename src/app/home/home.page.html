@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      القرآن الكريم
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+      <ion-grid *ngFor="let item of ser.Quran; let i = index">    
+        <ion-row *ngIf="i % 4 == 0">
+          <ion-col>
+            <ion-item (click)="showPage(item)">
+              <ion-label text-wrap>
+                <h5 style="font-size: 9pt;">الجزء {{ i+1 }}</h5>
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col *ngIf="i + 1 < ser.Quran.length">
+            <ion-item (click)="showPage(ser.Quran[i + 1])">
+              <ion-label text-wrap>
+                <h5 style="font-size: 9pt;">الجزء {{ i+2 }}</h5>
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col *ngIf="i + 2 < ser.Quran.length">
+            <ion-item (click)="showPage(ser.Quran[i + 2])">
+              <ion-label text-wrap>
+                <h5 style="font-size: 9pt;">الجزء {{ i+3 }}</h5>
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col *ngIf="i + 3 < ser.Quran.length">
+            <ion-item (click)="showPage(ser.Quran[i + 3])">
+              <ion-label text-wrap>
+                <h5 style="font-size: 9pt;">الجزء {{ i+4 }}</h5>
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-list>
+</ion-content>

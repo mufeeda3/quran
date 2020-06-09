@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ser.CurrentPart.Name}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-grid *ngFor="let item of ser.CurrentPart.Pages; let i = index">
+      <ion-row *ngIf="i % 4 == 0">
+        <ion-col>
+          <ion-item (click)="showPage(item)">
+            <ion-label text-wrap>
+              <h3>{{ item.Name }}</h3>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="i + 1 < ser.CurrentPart.Pages.length">
+          <ion-item (click)="showPage(ser.CurrentPart.Pages[i + 1])">
+            <ion-label text-wrap>
+              <h3>{{ ser.CurrentPart.Pages[i + 1].Name }}</h3>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="i + 2 < ser.CurrentPart.Pages.length">
+          <ion-item (click)="showPage(ser.CurrentPart.Pages[i + 2])">
+            <ion-label text-wrap>
+              <h3>{{ ser.CurrentPart.Pages[i + 2].Name }}</h3>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col *ngIf="i + 3 < ser.CurrentPart.Pages.length">
+          <ion-item (click)="showPage(ser.CurrentPart.Pages[i + 3])">
+            <ion-label text-wrap>
+              <h3>{{ ser.CurrentPart.Pages[i + 3].Name }}</h3>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>
