@@ -1,37 +1,3 @@
-cd C:\Program Files (x86)\Java\jre1.8.0_211\bin
-
-keytool  -genkey -v -keystore saraquran.keystore -alias SaraQuran -keyalg RSA  -keysize 2048 -validity 100000
-
-saraquran.keystore
-
-Pass: Sara@2020
-
-What is your first and last name?
-  [Unknown]:  Sara Quran
-What is the name of your organizational unit?
-  [Unknown]:  Sara
-What is the name of your organization?
-  [Unknown]:  Sara Software
-What is the name of your City or Locality?
-  [Unknown]:  Damascus
-What is the name of your State or Province?
-  [Unknown]:  Syria
-What is the two-letter country code for this unit?
-  [Unknown]:  sy
-Is CN=Sara Quran, OU=Sara, O=Sara Software, L=Damascus, ST=Syria, C=sy correct?
-  [no]:  yes
-
-CN=Sara Quran, OU=Sara, O=Sara Software, L=Damascus, ST=Syria, C=sy
-
 
  ionic cordova resources
 
-
-f:
-cd C:\Users\mufeed\source\repos\s\Quran
-ionic cordova build android --prod --release
-cd C:\Users\mufeed\source\repos\s\Quran\keys
-XCOPY "C:\Users\mufeed\source\repos\s\Quran\platforms\android\app\build\outputs\apk\release\app-release-unsigned.apk" "C:\Users\mufeed\source\repos\s\Quran\keys\app-release-unsigned.apk" /E /Q /Y 
-"C:\Program Files (x86)\Java\jdk1.8.0_211\bin\jarsigner" -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore saraquran.keystore app-release-unsigned.apk saraquran
-"C:\Users\mufeed\AppData\Local\Android\Sdk\build-tools\29.0.2\zipalign" -v 4 app-release-unsigned.apk saraquran.apk
-pause
